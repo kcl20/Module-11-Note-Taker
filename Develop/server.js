@@ -33,15 +33,17 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
+// GET Route for savedNotes triggered by API call when save button is clicked
+app.get("/api/notes", (req,res) => { 
+    res.json(savedNotes)
+});
+
 // Wildcard route to direct users to index page
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
-// GET Route for savedNotes triggered by API call when save button is clicked
-app.get("/api/notes", (req,res) => { 
-    res.json(savedNotes)
-});
+
 
 // POST Route for savedNotes triggered by API call when save button is clicked
 app.post("/api/notes", (req,res) => {
@@ -59,13 +61,24 @@ app.post("/api/notes", (req,res) => {
     fs.writeFile("./db/db.json", JSON.stringify(savedNotes), (err) => {
         if (err) throw err;
         console.log("Note saved!");
+        res.json(savedNotes);
         });
     });
     
 // New Note ("+" write icon)
 
 // Delete note
+app.delete("/api/notes/:id", (req,res) => {
+    const id = req.params.id;
+    console.log("ID to delete:" + id);
+    // keep only notes that don't match the id
+    savedNotes = savedNotes.filter((note) => note.id != id);
 
+    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes), (err) => {
+        if (err) throw err;
+        console.log("Note deleted!");
+        });
+    });
 
 
 app.listen(PORT, () =>
