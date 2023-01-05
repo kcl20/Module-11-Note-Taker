@@ -27,6 +27,7 @@ let activeNote = {};
 
 const getNotes = () =>
   fetch('/api/notes', {
+    // fetch('/db/db.json', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
