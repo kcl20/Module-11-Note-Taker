@@ -5,7 +5,7 @@ const { clog } = require('./middleware/clog');
 const fs = require("fs");
 var savedNotes = require("./db/db.json");
 
-var noteID = 0;
+var noteID = 1;
 function autoIncrementNoteID() {
     return noteID++;
 }
@@ -65,12 +65,12 @@ app.post("/api/notes", (req,res) => {
         });
     });
     
-// New Note ("+" write icon)
+// New Note ("+" write icon) route
 
-// Delete note
+// Delete note route
 app.delete("/api/notes/:id", (req,res) => {
-    const id = req.params.id;
-    console.log("ID to delete:" + id);
+    let id = req.params.id;
+    console.log("ID to delete:" + req.params.id + " " + id);
     // keep only notes that don't match the id
     savedNotes = savedNotes.filter((note) => note.id != id);
 
