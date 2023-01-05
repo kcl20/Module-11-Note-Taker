@@ -28,9 +28,9 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
-// Wildcard route to direct users to a 404 page
+// Wildcard route to direct users to index page
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/404.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 // GET Route for savedNotes triggered by API call when save button is clicked
@@ -51,7 +51,9 @@ app.post("/api/notes", (req,res) => {
         });
     });
     
+// New Note ("+" write icon)
 
+// Delete note
 
 
 
