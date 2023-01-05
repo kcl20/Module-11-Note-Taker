@@ -5,6 +5,11 @@ const { clog } = require('./middleware/clog');
 const fs = require("fs");
 var savedNotes = require("./db/db.json");
 
+var noteID = 0;
+function autoIncrementNoteID() {
+    return noteID++;
+}
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -42,8 +47,14 @@ app.get("/api/notes", (req,res) => {
 app.post("/api/notes", (req,res) => {
     // receive API call, save the request body to a variable
     let addNewNote = req.body;
+    console.log(req.body);
+    // add an id to the note
+    addNewNote.id = autoIncrementNoteID();
+    console.log(addNewNote);
+
     // add to array
     savedNotes.push(addNewNote);
+
     // write to db.json
     fs.writeFile("./db/db.json", JSON.stringify(savedNotes), (err) => {
         if (err) throw err;
