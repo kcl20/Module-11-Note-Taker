@@ -33,12 +33,24 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/404.html'))
 );
 
-// GET Route for notes triggered by API
+// GET Route for savedNotes triggered by API call when save button is clicked
 app.get("/api/notes", (req,res) => { 
     res.json(savedNotes)
 });
 
-
+// POST Route for savedNotes triggered by API call when save button is clicked
+app.post("/api/notes", (req,res) => {
+    // receive API call, save the request body to a variable
+    let addNewNote = req.body;
+    // add to array
+    savedNotes.push(addNewNote);
+    // write to db.json
+    fs.writeFile("./db/db.json", JSON.stringify(savedNotes), (err) => {
+        if (err) throw err;
+        console.log("Note saved!");
+        });
+    });
+    
 
 
 
