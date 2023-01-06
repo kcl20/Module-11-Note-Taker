@@ -9,7 +9,7 @@ var noteID = 1;
 function autoIncrementNoteID() {
     return noteID++;
 }
-
+// MUST use process.env.PORT for Heroku deployment
 const PORT = process.env.PORT || 3001;
 const app = express();
 
