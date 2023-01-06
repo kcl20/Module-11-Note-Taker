@@ -1,5 +1,5 @@
 {
-  "name": "note-taker",
+  "name": "module-11-note-taker",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "engines": {
+    "node": "18.12.1"
+  }  
 }
