@@ -1,0 +1,20 @@
+{
+  "name": "module-11-note-taker",
+  "version": "1.0.0",
+  "description": "Express.js Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcl20/Module-11-Note-Taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcl20/Module-11-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/kcl20/Module-11-Note-Taker#readme"
+}
