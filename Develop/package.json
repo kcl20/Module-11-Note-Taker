@@ -16,5 +16,13 @@
   },
   "devDependencies": {},
   "keywords": [],
-  "description": ""
+  "description": "Express.js Challenge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcl20/Module-11-Note-Taker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kcl20/Module-11-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/kcl20/Module-11-Note-Taker#readme"
 }
